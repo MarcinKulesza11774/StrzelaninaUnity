@@ -57,7 +57,7 @@ public class JigglePhysics : MonoBehaviour
         ostatniaPredkoscAnchora = predkoscAnchora;
 
         // skalaBezwladnosci pozwala przyciąć siłę bez ruszania reszty parametrów
-        Vector3 silaBezwladnosciWorld = -masa * przyspieszenieAnchoraWygladzone * skalaBezwladnosci;
+        Vector3 silaBezwladnosciWorld = masa * przyspieszenieAnchoraWygladzone * skalaBezwladnosci;
         Vector3 silaBezwladnosciLokalna = anchor.InverseTransformDirection(silaBezwladnosciWorld);
 
         Vector3 wychylenie = transform.localPosition - pozycjaSpoczynkowa;

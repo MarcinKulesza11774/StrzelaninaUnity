@@ -2,20 +2,25 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
+    [Header("Ruch")]
     public float speed = 5f;
-    public float jumpForce = 5f;
+    public float sprintMultiplier = 2f;
+
+    [Header("Referencje")]
     public Transform cameraTransform;
-
-    private Rigidbody rb;
-    private Vector3 moveInput;
-
     public Animator animator;
+
+    private CharacterController cc;
+    private Vector3 moveInput;
+    private bool isSprinting;
+
+    // Dostêp dla kamery – czy gracz celuje
+    public bool IsAiming { get; private set; }
+    public bool Bang { get; private set; }
 
     void Start()
     {
-        rb = GetComponent<Rigidbody>();
-        rb.freezeRotation = true;
-        Animator animator;
+        cc = GetComponent<CharacterController>();
     }
 
     void Update()
@@ -25,50 +30,44 @@ public class PlayerMovement : MonoBehaviour
 
         Vector3 forward = cameraTransform.forward;
         Vector3 right = cameraTransform.right;
-
-        forward.y = 0;
-        right.y = 0;
-
-        forward.Normalize();
-        right.Normalize();
+        forward.y = 0; forward.Normalize();
+        right.y = 0; right.Normalize();
 
         moveInput = (forward * v + right * h).normalized;
+        bool czyIdzie = moveInput.sqrMagnitude > 0.01f;
 
-        //if (Input.GetKeyDown(KeyCode.Space))
-        //{
-        //    rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
-        //}
-
-        if (Input.GetKeyDown(KeyCode.LeftShift))
+        // Celowanie – zablokowane podczas ruchu
+        if (Input.GetKeyDown(KeyCode.Mouse1) && !czyIdzie)
+            IsAiming = true;
+        if (Input.GetKeyUp(KeyCode.Mouse1) || czyIdzie)
+            IsAiming = false;
+        if (Input.GetKeyUp(KeyCode.Mouse0) && IsAiming)
         {
-            speed *= 2;
-            animator.speed *= 2;
+            animator.SetTrigger("Bang");
         }
 
-        if (Input.GetKeyUp(KeyCode.LeftShift))
-        {
-            speed /= 2;
-            animator.speed /= 2;
-        }
-
-
-        bool czyIdzie = Mathf.Abs(h) > 0.01f || Mathf.Abs(v) > 0.01f;
-
+        animator.SetBool("czyCeluje", IsAiming);
         animator.SetBool("czyIdzie", czyIdzie);
+
+        // Sprint – niedostêpny podczas celowania
+        if (Input.GetKeyDown(KeyCode.LeftShift) && !isSprinting && !IsAiming)
+        {
+            isSprinting = true;
+            speed *= sprintMultiplier;
+            animator.speed *= sprintMultiplier;
+        }
+        if (Input.GetKeyUp(KeyCode.LeftShift) && isSprinting)
+        {
+            isSprinting = false;
+            speed /= sprintMultiplier;
+            animator.speed /= sprintMultiplier;
+        }
+
+        // Ruch + grawitacja
+        Vector3 move = moveInput * speed + Vector3.down * 9.81f;
+        cc.Move(move * Time.deltaTime);
     }
 
-    void FixedUpdate()
-    {
-        rb.MovePosition(rb.position + moveInput * speed * Time.fixedDeltaTime);
-    }
-
-    public bool IsMoving()
-    {
-        return moveInput.sqrMagnitude > 0.01f;
-    }
-
-    public Vector3 MoveDirection()
-    {
-        return moveInput;
-    }
+    public bool IsMoving() => moveInput.sqrMagnitude > 0.01f;
+    public Vector3 MoveDirection() => moveInput;
 }
