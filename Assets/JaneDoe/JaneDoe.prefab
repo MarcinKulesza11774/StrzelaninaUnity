@@ -1,0 +1,737 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &506228117957206450
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: 07b7e65f09a3ecf49860bc5f104c9a87, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -5.22065
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 07b7e65f09a3ecf49860bc5f104c9a87, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 07b7e65f09a3ecf49860bc5f104c9a87, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -9.0385
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 07b7e65f09a3ecf49860bc5f104c9a87, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 07b7e65f09a3ecf49860bc5f104c9a87, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 07b7e65f09a3ecf49860bc5f104c9a87, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 07b7e65f09a3ecf49860bc5f104c9a87, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 07b7e65f09a3ecf49860bc5f104c9a87, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 07b7e65f09a3ecf49860bc5f104c9a87, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 07b7e65f09a3ecf49860bc5f104c9a87, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 07b7e65f09a3ecf49860bc5f104c9a87, type: 3}
+      propertyPath: m_Name
+      value: JaneDoe
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 07b7e65f09a3ecf49860bc5f104c9a87, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1873580376516497242}
+    - targetCorrespondingSourceObject: {fileID: -8531707824083276376, guid: 07b7e65f09a3ecf49860bc5f104c9a87, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4580447338026621639}
+    - targetCorrespondingSourceObject: {fileID: 8110087385328023156, guid: 07b7e65f09a3ecf49860bc5f104c9a87, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 917040199866476377}
+    - targetCorrespondingSourceObject: {fileID: 8400897804950311065, guid: 07b7e65f09a3ecf49860bc5f104c9a87, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1156017173418903891}
+    - targetCorrespondingSourceObject: {fileID: -5523071660797493480, guid: 07b7e65f09a3ecf49860bc5f104c9a87, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 793481264069807778}
+    - targetCorrespondingSourceObject: {fileID: 7202619878595800041, guid: 07b7e65f09a3ecf49860bc5f104c9a87, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7041117407037748941}
+    - targetCorrespondingSourceObject: {fileID: -3062398444385141226, guid: 07b7e65f09a3ecf49860bc5f104c9a87, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5621678983620557652}
+    - targetCorrespondingSourceObject: {fileID: 2972509516559665110, guid: 07b7e65f09a3ecf49860bc5f104c9a87, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8177111930786526704}
+    - targetCorrespondingSourceObject: {fileID: -2460386137337800473, guid: 07b7e65f09a3ecf49860bc5f104c9a87, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1275466068044396247}
+    - targetCorrespondingSourceObject: {fileID: 7862026998194851908, guid: 07b7e65f09a3ecf49860bc5f104c9a87, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6569768592139522783}
+    - targetCorrespondingSourceObject: {fileID: -6667368635515216892, guid: 07b7e65f09a3ecf49860bc5f104c9a87, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 730420247322033521}
+    - targetCorrespondingSourceObject: {fileID: 9201587154295285234, guid: 07b7e65f09a3ecf49860bc5f104c9a87, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6763352026738285774}
+    - targetCorrespondingSourceObject: {fileID: 6846379193341308773, guid: 07b7e65f09a3ecf49860bc5f104c9a87, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 414295152327940233}
+    - targetCorrespondingSourceObject: {fileID: -270388983065686960, guid: 07b7e65f09a3ecf49860bc5f104c9a87, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3862778268993432822}
+    - targetCorrespondingSourceObject: {fileID: -2865802173883836053, guid: 07b7e65f09a3ecf49860bc5f104c9a87, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4826359763404869130}
+    - targetCorrespondingSourceObject: {fileID: 1987257367175152138, guid: 07b7e65f09a3ecf49860bc5f104c9a87, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1291610145517286322}
+    - targetCorrespondingSourceObject: {fileID: 46910430243710520, guid: 07b7e65f09a3ecf49860bc5f104c9a87, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3438947411716780349}
+    - targetCorrespondingSourceObject: {fileID: -9033406126899327159, guid: 07b7e65f09a3ecf49860bc5f104c9a87, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1519500589850197366}
+    - targetCorrespondingSourceObject: {fileID: 4053890044025493987, guid: 07b7e65f09a3ecf49860bc5f104c9a87, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7875625370586226962}
+    - targetCorrespondingSourceObject: {fileID: -3507013233718382578, guid: 07b7e65f09a3ecf49860bc5f104c9a87, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 879287825348452526}
+    - targetCorrespondingSourceObject: {fileID: 3311165687399124155, guid: 07b7e65f09a3ecf49860bc5f104c9a87, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5329523822855954917}
+    - targetCorrespondingSourceObject: {fileID: -3311767647484803196, guid: 07b7e65f09a3ecf49860bc5f104c9a87, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 9086200009313271181}
+    - targetCorrespondingSourceObject: {fileID: 1666996941628252924, guid: 07b7e65f09a3ecf49860bc5f104c9a87, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8878099012529031678}
+    - targetCorrespondingSourceObject: {fileID: 8236911862878132115, guid: 07b7e65f09a3ecf49860bc5f104c9a87, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2758387677987885002}
+    - targetCorrespondingSourceObject: {fileID: 4892279057658120926, guid: 07b7e65f09a3ecf49860bc5f104c9a87, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8808058108150170579}
+  m_SourcePrefab: {fileID: 100100000, guid: 07b7e65f09a3ecf49860bc5f104c9a87, type: 3}
+--- !u!1 &406624927567015675 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -9033406126899327159, guid: 07b7e65f09a3ecf49860bc5f104c9a87, type: 3}
+  m_PrefabInstance: {fileID: 506228117957206450}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1519500589850197366
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 406624927567015675}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f301f19e3e09df3488d5bea1bae7013a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::JigglePhysics_2_0
+  anchor: {fileID: 0}
+  masa: 1
+  wspolczynnikSprezystosci: 60
+  wspolczynnikTlumienia: 8
+  sztywnoscOsi: {x: 1, y: 0.6, z: 1.3}
+  maksymalneWychylenie: {x: 0.08, y: 0.04, z: 0.12}
+  "czasWyg\u0142adzaniaPrzyspieszenia": 0.05
+--- !u!1 &549671164927575946 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 46910430243710520, guid: 07b7e65f09a3ecf49860bc5f104c9a87, type: 3}
+  m_PrefabInstance: {fileID: 506228117957206450}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &3438947411716780349
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 549671164927575946}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f301f19e3e09df3488d5bea1bae7013a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::JigglePhysics_2_0
+  anchor: {fileID: 0}
+  masa: 1
+  wspolczynnikSprezystosci: 60
+  wspolczynnikTlumienia: 8
+  sztywnoscOsi: {x: 1, y: 0.6, z: 1.3}
+  maksymalneWychylenie: {x: 0.08, y: 0.04, z: 0.12}
+  "czasWyg\u0142adzaniaPrzyspieszenia": 0.05
+--- !u!1 &848666963804314851 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 07b7e65f09a3ecf49860bc5f104c9a87, type: 3}
+  m_PrefabInstance: {fileID: 506228117957206450}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &1873580376516497242
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 848666963804314851}
+  m_Enabled: 1
+  m_Avatar: {fileID: 9000000, guid: 7d54ba64fe95854499cd6c9ecca95198, type: 3}
+  m_Controller: {fileID: 9100000, guid: fbf111fdc32671244810b546c4abbab8, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!1 &1053617073181101082 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -8531707824083276376, guid: 07b7e65f09a3ecf49860bc5f104c9a87, type: 3}
+  m_PrefabInstance: {fileID: 506228117957206450}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &4580447338026621639
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1053617073181101082}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f301f19e3e09df3488d5bea1bae7013a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::JigglePhysics_2_0
+  anchor: {fileID: 0}
+  masa: 1
+  wspolczynnikSprezystosci: 60
+  wspolczynnikTlumienia: 8
+  sztywnoscOsi: {x: 1, y: 0.6, z: 1.3}
+  maksymalneWychylenie: {x: 0.08, y: 0.04, z: 0.12}
+  "czasWyg\u0142adzaniaPrzyspieszenia": 0.05
+--- !u!1 &1163097658287276878 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1666996941628252924, guid: 07b7e65f09a3ecf49860bc5f104c9a87, type: 3}
+  m_PrefabInstance: {fileID: 506228117957206450}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &8878099012529031678
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1163097658287276878}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f301f19e3e09df3488d5bea1bae7013a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::JigglePhysics_2_0
+  anchor: {fileID: 0}
+  masa: 1
+  wspolczynnikSprezystosci: 60
+  wspolczynnikTlumienia: 8
+  sztywnoscOsi: {x: 1, y: 0.6, z: 1.3}
+  maksymalneWychylenie: {x: 0.08, y: 0.04, z: 0.12}
+  "czasWyg\u0142adzaniaPrzyspieszenia": 0.05
+--- !u!1 &2058800069899428792 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1987257367175152138, guid: 07b7e65f09a3ecf49860bc5f104c9a87, type: 3}
+  m_PrefabInstance: {fileID: 506228117957206450}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1291610145517286322
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2058800069899428792}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f301f19e3e09df3488d5bea1bae7013a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::JigglePhysics_2_0
+  anchor: {fileID: 0}
+  masa: 1
+  wspolczynnikSprezystosci: 60
+  wspolczynnikTlumienia: 8
+  sztywnoscOsi: {x: 1, y: 0.6, z: 1.3}
+  maksymalneWychylenie: {x: 0.08, y: 0.04, z: 0.12}
+  "czasWyg\u0142adzaniaPrzyspieszenia": 0.05
+--- !u!1 &2629755044197547446 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -6667368635515216892, guid: 07b7e65f09a3ecf49860bc5f104c9a87, type: 3}
+  m_PrefabInstance: {fileID: 506228117957206450}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &730420247322033521
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2629755044197547446}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f301f19e3e09df3488d5bea1bae7013a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::JigglePhysics_2_0
+  anchor: {fileID: 0}
+  masa: 1
+  wspolczynnikSprezystosci: 60
+  wspolczynnikTlumienia: 8
+  sztywnoscOsi: {x: 1, y: 0.6, z: 1.3}
+  maksymalneWychylenie: {x: 0.08, y: 0.04, z: 0.12}
+  "czasWyg\u0142adzaniaPrzyspieszenia": 0.05
+--- !u!1 &3095631474477788425 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3311165687399124155, guid: 07b7e65f09a3ecf49860bc5f104c9a87, type: 3}
+  m_PrefabInstance: {fileID: 506228117957206450}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &5329523822855954917
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3095631474477788425}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f301f19e3e09df3488d5bea1bae7013a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::JigglePhysics_2_0
+  anchor: {fileID: 0}
+  masa: 1
+  wspolczynnikSprezystosci: 60
+  wspolczynnikTlumienia: 8
+  sztywnoscOsi: {x: 1, y: 0.6, z: 1.3}
+  maksymalneWychylenie: {x: 0.08, y: 0.04, z: 0.12}
+  "czasWyg\u0142adzaniaPrzyspieszenia": 0.05
+--- !u!1 &3334355196328715876 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2972509516559665110, guid: 07b7e65f09a3ecf49860bc5f104c9a87, type: 3}
+  m_PrefabInstance: {fileID: 506228117957206450}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &8177111930786526704
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3334355196328715876}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f301f19e3e09df3488d5bea1bae7013a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::JigglePhysics_2_0
+  anchor: {fileID: 0}
+  masa: 1
+  wspolczynnikSprezystosci: 60
+  wspolczynnikTlumienia: 8
+  sztywnoscOsi: {x: 1, y: 0.6, z: 1.3}
+  maksymalneWychylenie: {x: 0.08, y: 0.04, z: 0.12}
+  "czasWyg\u0142adzaniaPrzyspieszenia": 0.05
+--- !u!1 &3772996539556044458 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -5523071660797493480, guid: 07b7e65f09a3ecf49860bc5f104c9a87, type: 3}
+  m_PrefabInstance: {fileID: 506228117957206450}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &793481264069807778
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3772996539556044458}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f301f19e3e09df3488d5bea1bae7013a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::JigglePhysics_2_0
+  anchor: {fileID: 0}
+  masa: 1
+  wspolczynnikSprezystosci: 60
+  wspolczynnikTlumienia: 8
+  sztywnoscOsi: {x: 1, y: 0.6, z: 1.3}
+  maksymalneWychylenie: {x: 0.08, y: 0.04, z: 0.12}
+  "czasWyg\u0142adzaniaPrzyspieszenia": 0.05
+--- !u!1 &4558826235815704657 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4053890044025493987, guid: 07b7e65f09a3ecf49860bc5f104c9a87, type: 3}
+  m_PrefabInstance: {fileID: 506228117957206450}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &7875625370586226962
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4558826235815704657}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f301f19e3e09df3488d5bea1bae7013a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::JigglePhysics_2_0
+  anchor: {fileID: 0}
+  masa: 1
+  wspolczynnikSprezystosci: 60
+  wspolczynnikTlumienia: 8
+  sztywnoscOsi: {x: 1, y: 0.6, z: 1.3}
+  maksymalneWychylenie: {x: 0.08, y: 0.04, z: 0.12}
+  "czasWyg\u0142adzaniaPrzyspieszenia": 0.05
+--- !u!1 &4963712444673092460 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4892279057658120926, guid: 07b7e65f09a3ecf49860bc5f104c9a87, type: 3}
+  m_PrefabInstance: {fileID: 506228117957206450}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &8808058108150170579
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4963712444673092460}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f301f19e3e09df3488d5bea1bae7013a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::JigglePhysics_2_0
+  anchor: {fileID: 0}
+  masa: 1
+  wspolczynnikSprezystosci: 60
+  wspolczynnikTlumienia: 8
+  sztywnoscOsi: {x: 1, y: 0.6, z: 1.3}
+  maksymalneWychylenie: {x: 0.08, y: 0.04, z: 0.12}
+  "czasWyg\u0142adzaniaPrzyspieszenia": 0.05
+--- !u!1 &5211489136161608124 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -3507013233718382578, guid: 07b7e65f09a3ecf49860bc5f104c9a87, type: 3}
+  m_PrefabInstance: {fileID: 506228117957206450}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &879287825348452526
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5211489136161608124}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f301f19e3e09df3488d5bea1bae7013a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::JigglePhysics_2_0
+  anchor: {fileID: 0}
+  masa: 1
+  wspolczynnikSprezystosci: 60
+  wspolczynnikTlumienia: 8
+  sztywnoscOsi: {x: 1, y: 0.6, z: 1.3}
+  maksymalneWychylenie: {x: 0.08, y: 0.04, z: 0.12}
+  "czasWyg\u0142adzaniaPrzyspieszenia": 0.05
+--- !u!1 &5946536142664998820 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -3062398444385141226, guid: 07b7e65f09a3ecf49860bc5f104c9a87, type: 3}
+  m_PrefabInstance: {fileID: 506228117957206450}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &5621678983620557652
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5946536142664998820}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f301f19e3e09df3488d5bea1bae7013a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::JigglePhysics_2_0
+  anchor: {fileID: 0}
+  masa: 1
+  wspolczynnikSprezystosci: 60
+  wspolczynnikTlumienia: 8
+  sztywnoscOsi: {x: 1, y: 0.6, z: 1.3}
+  maksymalneWychylenie: {x: 0.08, y: 0.04, z: 0.12}
+  "czasWyg\u0142adzaniaPrzyspieszenia": 0.05
+--- !u!1 &6128351350799394358 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -3311767647484803196, guid: 07b7e65f09a3ecf49860bc5f104c9a87, type: 3}
+  m_PrefabInstance: {fileID: 506228117957206450}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &9086200009313271181
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6128351350799394358}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f301f19e3e09df3488d5bea1bae7013a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::JigglePhysics_2_0
+  anchor: {fileID: 0}
+  masa: 1
+  wspolczynnikSprezystosci: 60
+  wspolczynnikTlumienia: 8
+  sztywnoscOsi: {x: 1, y: 0.6, z: 1.3}
+  maksymalneWychylenie: {x: 0.08, y: 0.04, z: 0.12}
+  "czasWyg\u0142adzaniaPrzyspieszenia": 0.05
+--- !u!1 &6342548564851068631 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6846379193341308773, guid: 07b7e65f09a3ecf49860bc5f104c9a87, type: 3}
+  m_PrefabInstance: {fileID: 506228117957206450}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &414295152327940233
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6342548564851068631}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f301f19e3e09df3488d5bea1bae7013a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::JigglePhysics_2_0
+  anchor: {fileID: 0}
+  masa: 1
+  wspolczynnikSprezystosci: 60
+  wspolczynnikTlumienia: 8
+  sztywnoscOsi: {x: 1, y: 0.6, z: 1.3}
+  maksymalneWychylenie: {x: 0.08, y: 0.04, z: 0.12}
+  "czasWyg\u0142adzaniaPrzyspieszenia": 0.05
+--- !u!1 &6547257571521608021 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -2460386137337800473, guid: 07b7e65f09a3ecf49860bc5f104c9a87, type: 3}
+  m_PrefabInstance: {fileID: 506228117957206450}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1275466068044396247
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6547257571521608021}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f301f19e3e09df3488d5bea1bae7013a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::JigglePhysics_2_0
+  anchor: {fileID: 0}
+  masa: 1
+  wspolczynnikSprezystosci: 60
+  wspolczynnikTlumienia: 8
+  sztywnoscOsi: {x: 1, y: 0.6, z: 1.3}
+  maksymalneWychylenie: {x: 0.08, y: 0.04, z: 0.12}
+  "czasWyg\u0142adzaniaPrzyspieszenia": 0.05
+--- !u!1 &6862601626377255129 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -2865802173883836053, guid: 07b7e65f09a3ecf49860bc5f104c9a87, type: 3}
+  m_PrefabInstance: {fileID: 506228117957206450}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &4826359763404869130
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6862601626377255129}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f301f19e3e09df3488d5bea1bae7013a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::JigglePhysics_2_0
+  anchor: {fileID: 0}
+  masa: 1
+  wspolczynnikSprezystosci: 60
+  wspolczynnikTlumienia: 8
+  sztywnoscOsi: {x: 1, y: 0.6, z: 1.3}
+  maksymalneWychylenie: {x: 0.08, y: 0.04, z: 0.12}
+  "czasWyg\u0142adzaniaPrzyspieszenia": 0.05
+--- !u!1 &7274055932986378843 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7202619878595800041, guid: 07b7e65f09a3ecf49860bc5f104c9a87, type: 3}
+  m_PrefabInstance: {fileID: 506228117957206450}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &7041117407037748941
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7274055932986378843}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f301f19e3e09df3488d5bea1bae7013a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::JigglePhysics_2_0
+  anchor: {fileID: 0}
+  masa: 1
+  wspolczynnikSprezystosci: 60
+  wspolczynnikTlumienia: 8
+  sztywnoscOsi: {x: 1, y: 0.6, z: 1.3}
+  maksymalneWychylenie: {x: 0.08, y: 0.04, z: 0.12}
+  "czasWyg\u0142adzaniaPrzyspieszenia": 0.05
+--- !u!1 &7646545012075278838 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7862026998194851908, guid: 07b7e65f09a3ecf49860bc5f104c9a87, type: 3}
+  m_PrefabInstance: {fileID: 506228117957206450}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &6569768592139522783
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7646545012075278838}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f301f19e3e09df3488d5bea1bae7013a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::JigglePhysics_2_0
+  anchor: {fileID: 0}
+  masa: 1
+  wspolczynnikSprezystosci: 60
+  wspolczynnikTlumienia: 8
+  sztywnoscOsi: {x: 1, y: 0.6, z: 1.3}
+  maksymalneWychylenie: {x: 0.08, y: 0.04, z: 0.12}
+  "czasWyg\u0142adzaniaPrzyspieszenia": 0.05
+--- !u!1 &8328149402028568875 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8400897804950311065, guid: 07b7e65f09a3ecf49860bc5f104c9a87, type: 3}
+  m_PrefabInstance: {fileID: 506228117957206450}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1156017173418903891
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8328149402028568875}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f301f19e3e09df3488d5bea1bae7013a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::JigglePhysics_2_0
+  anchor: {fileID: 0}
+  masa: 1
+  wspolczynnikSprezystosci: 60
+  wspolczynnikTlumienia: 8
+  sztywnoscOsi: {x: 1, y: 0.6, z: 1.3}
+  maksymalneWychylenie: {x: 0.08, y: 0.04, z: 0.12}
+  "czasWyg\u0142adzaniaPrzyspieszenia": 0.05
+--- !u!1 &8451313080673646113 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8236911862878132115, guid: 07b7e65f09a3ecf49860bc5f104c9a87, type: 3}
+  m_PrefabInstance: {fileID: 506228117957206450}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2758387677987885002
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8451313080673646113}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f301f19e3e09df3488d5bea1bae7013a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::JigglePhysics_2_0
+  anchor: {fileID: 0}
+  masa: 1
+  wspolczynnikSprezystosci: 60
+  wspolczynnikTlumienia: 8
+  sztywnoscOsi: {x: 1, y: 0.6, z: 1.3}
+  maksymalneWychylenie: {x: 0.08, y: 0.04, z: 0.12}
+  "czasWyg\u0142adzaniaPrzyspieszenia": 0.05
+--- !u!1 &8613884465828927430 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8110087385328023156, guid: 07b7e65f09a3ecf49860bc5f104c9a87, type: 3}
+  m_PrefabInstance: {fileID: 506228117957206450}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &917040199866476377
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8613884465828927430}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f301f19e3e09df3488d5bea1bae7013a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::JigglePhysics_2_0
+  anchor: {fileID: 0}
+  masa: 1
+  wspolczynnikSprezystosci: 60
+  wspolczynnikTlumienia: 8
+  sztywnoscOsi: {x: 1, y: 0.6, z: 1.3}
+  maksymalneWychylenie: {x: 0.08, y: 0.04, z: 0.12}
+  "czasWyg\u0142adzaniaPrzyspieszenia": 0.05
+--- !u!1 &8697824210467554368 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9201587154295285234, guid: 07b7e65f09a3ecf49860bc5f104c9a87, type: 3}
+  m_PrefabInstance: {fileID: 506228117957206450}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &6763352026738285774
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8697824210467554368}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f301f19e3e09df3488d5bea1bae7013a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::JigglePhysics_2_0
+  anchor: {fileID: 0}
+  masa: 1
+  wspolczynnikSprezystosci: 60
+  wspolczynnikTlumienia: 8
+  sztywnoscOsi: {x: 1, y: 0.6, z: 1.3}
+  maksymalneWychylenie: {x: 0.08, y: 0.04, z: 0.12}
+  "czasWyg\u0142adzaniaPrzyspieszenia": 0.05
+--- !u!1 &8879156098479140322 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -270388983065686960, guid: 07b7e65f09a3ecf49860bc5f104c9a87, type: 3}
+  m_PrefabInstance: {fileID: 506228117957206450}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &3862778268993432822
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8879156098479140322}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f301f19e3e09df3488d5bea1bae7013a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::JigglePhysics_2_0
+  anchor: {fileID: 0}
+  masa: 1
+  wspolczynnikSprezystosci: 60
+  wspolczynnikTlumienia: 8
+  sztywnoscOsi: {x: 1, y: 0.6, z: 1.3}
+  maksymalneWychylenie: {x: 0.08, y: 0.04, z: 0.12}
+  "czasWyg\u0142adzaniaPrzyspieszenia": 0.05
