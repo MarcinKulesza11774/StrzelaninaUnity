@@ -106,9 +106,4 @@ public class GunController : MonoBehaviour
         yield return new WaitForSeconds(shootCooldown);
         canShoot = true;
     }
-
-    public void AddBullets(int count)
-    {
-        bulletsLeft = Mathf.Min(bulletsLeft + count, maxBullets);
-    }
 }

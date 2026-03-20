@@ -13,6 +13,12 @@ public class Bullet : MonoBehaviour
     {
         if (col.gameObject.CompareTag("Player")) return;
 
+        //if (col.gameObject.CompareTag("Enemy"))
+        //{
+        col.gameObject.GetComponentInParent<EnemyAI>()?.GetShot();
+        //return;
+        //}
+
         // Spawn decala w miejscu trafienia
         if (bulletHolePrefab != null && col.contacts.Length > 0)
         {
@@ -34,8 +40,9 @@ public class Bullet : MonoBehaviour
                 Destroy(hole, bulletHoleLifetime);
         }
 
+        
+
         // Reakcje z otoczeniem – do uzupełnienia:
-        // col.gameObject.GetComponent<EnemyAI>()?.GetShot();
         // col.gameObject.GetComponent<Padlock>()?.Unlock();
         // col.gameObject.GetComponent<TurretTrap>()?.TakeHit();
 
