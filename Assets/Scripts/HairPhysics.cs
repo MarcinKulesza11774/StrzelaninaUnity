@@ -14,40 +14,28 @@ public class HairPhysics : MonoBehaviour
     [Header("Anchor (kość głowy / rodzic nasady)")]
     public Transform anchor;
 
-    [Header("── Sprężyna ──────────────────────────────────────────────")]
-    [Tooltip("Sztywność u nasady (przy głowie). Zacznij od 80–120.")]
+    [Header("Sprężyna")]
     [Range(1f, 300f)] public float sztywnosc = 100f;
-
-    [Tooltip("Sztywność na końcu włosa – zazwyczaj dużo mniej niż nasada. Zacznij od 10–20.")]
     [Range(1f, 300f)] public float sztywnosc_koniec = 15f;
-
-    [Tooltip("Tłumienie drgań. Zacznij od 4–8.")]
     [Range(0.1f, 40f)] public float tlumienie = 5f;
 
-    [Header("── Bezwładność ───────────────────────────────────────────")]
-    [Tooltip("Jak mocno włos reaguje na ruch głowy. Zacznij od 0.01.")]
+    [Header("Bezwładność")]
     [Range(0f, 1f)] public float skalaBezwladnosci = 0.01f;
-
-    [Tooltip("Wygładzanie przyspieszenia. Zacznij od 0.05.")]
     [Range(0.01f, 0.3f)] public float wygładzanie = 0.05f;
 
-    [Header("── Limity wychylenia (dla MMD zacznij od 0.003–0.008) ──")]
-    [Tooltip("Nasada – mniejsze limity bo głowa blisko.")]
+    [Header("Limity wychylenia")]
     public Vector3 limit_nasada = new Vector3(0.003f, 0.002f, 0.003f);
-
-    [Tooltip("Koniec – większe limity bo końce są luźne.")]
     public Vector3 limit_koniec = new Vector3(0.008f, 0.005f, 0.008f);
 
-    [Header("── Wiatr ────────────────────────────────────────────────")]
+    [Header("Wiatr")]
     public bool enableWind = false;
     public Vector3 windDirection = new Vector3(1f, 0f, 0f);
     [Range(0f, 5f)] public float windStrength = 0.5f;
     [Range(0f, 5f)] public float windTurbulence = 1f;
 
-    [Header("── Kolizja ze sferami ────────────────────────────────────")]
+    [Header("Kolizja ze sferami")]
     public SphereCollider[] sferyKolizji;
 
-    // ── Stan per kość ──────────────────────────────────────────────────────
     struct KoscStan
     {
         public Transform transform;
@@ -70,7 +58,6 @@ public class HairPhysics : MonoBehaviour
         windStrength = strength;
     }
 
-    // ══════════════════════════════════════════════════════════════════════
     void Start()
     {
         if (anchor == null)
@@ -80,7 +67,6 @@ public class HairPhysics : MonoBehaviour
             return;
         }
 
-        // Zbierz łańcuch: ta kość + wszystkie dzieci w dół (jedna gałąź)
         var lista = new System.Collections.Generic.List<Transform>();
         Transform current = transform;
         while (current != null)
@@ -116,7 +102,6 @@ public class HairPhysics : MonoBehaviour
 
         windPhase += dt * windTurbulence;
 
-        // ── Przyspieszenie anchora (wspólne dla całego łańcucha) ───────────
         Vector3 aktualnaPos = anchor.position;
         Vector3 predkosc = (aktualnaPos - ostatniaPozycjaAnchora) / dt;
         Vector3 przyspieszenie = (predkosc - ostatniaPredkoscAnchora) / dt;
@@ -128,12 +113,10 @@ public class HairPhysics : MonoBehaviour
         ostatniaPozycjaAnchora = aktualnaPos;
         ostatniaPredkoscAnchora = predkosc;
 
-        // ── Symulacja każdej kości ─────────────────────────────────────────
         for (int i = 0; i < kosci.Length; i++)
         {
             ref KoscStan k = ref kosci[i];
 
-            // Rodzic tej kości – anchor dla kości 0, poprzednia kość dla reszty
             Transform rodzic = i == 0 ? anchor : kosci[i - 1].transform;
 
             Vector3 bezwladnosc = rodzic.InverseTransformDirection(
@@ -157,7 +140,6 @@ public class HairPhysics : MonoBehaviour
             Vector3 nowaPozycja = k.transform.localPosition + k.predkoscLokalna * dt;
             Vector3 lokalneWychylenie = nowaPozycja - k.pozycjaSpoczynkowa;
 
-            // Clamp + reset prędkości
             if (Mathf.Abs(lokalneWychylenie.x) > k.limit.x)
             {
                 lokalneWychylenie.x = Mathf.Sign(lokalneWychylenie.x) * k.limit.x;
@@ -176,7 +158,6 @@ public class HairPhysics : MonoBehaviour
 
             k.transform.localPosition = k.pozycjaSpoczynkowa + lokalneWychylenie;
 
-            // Kolizja ze sferami
             if (sferyKolizji == null) continue;
             foreach (var sfera in sferyKolizji)
             {

@@ -2,11 +2,8 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-    [Header("Decal dziury po kuli")]
     public GameObject bulletHolePrefab;
-    [Tooltip("Jak długo zostaje dziura na ścianie (sekundy). 0 = zostaje na zawsze")]
     public float bulletHoleLifetime = 30f;
-    [Tooltip("Mały offset żeby decal nie migotał z powierzchnią (Z-fighting)")]
     public float decalOffset = 0.01f;
 
     void OnCollisionEnter(Collision col)

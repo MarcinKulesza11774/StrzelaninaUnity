@@ -24,6 +24,8 @@ public class EnemyAI : MonoBehaviour
     [Range(2f, 20f)] public float sprintDetectionRange = 6f;
     public PlayerMovement playerMovement;
     public LayerMask wallLayers;
+    [Tooltip("Ile sekund wróg szuka w ostatniej pozycji zanim wróci do GeekedOut")]
+    [Range(0f, 10f)] public float lockedInSearchTime = 1f;
 
     [Header("Złapanie gracza")]
     public float catchRange = 1.2f;
@@ -43,9 +45,6 @@ public class EnemyAI : MonoBehaviour
 
     [Header("Dźwięki")]
     public AudioClip stepSound;
-    public AudioClip randomSound;
-    [Range(1f, 30f)] public float randomSoundMinInterval = 5f;
-    [Range(1f, 60f)] public float randomSoundMaxInterval = 15f;
 
     [Header("3D Audio")]
     public float audioMinDistance = 1f;
@@ -55,14 +54,11 @@ public class EnemyAI : MonoBehaviour
     private EnemyState state = EnemyState.GeekedOut;
     private float wanderTimer;
     private AudioSource stepAudioSource;
-    private AudioSource randomAudioSource;
     private AudioSource screamAudioSource;
-    private float randomSoundTimer;
     private Collider enemyCollider;
     private bool jumpscareTriggered = false;
     private Vector3 lastKnownPlayerPos;
     private float lockedInSearchTimer = 0f;
-    private const float lockedInSearchTime = 3f;
     private bool playerVisible = false;
     private bool playerSprinting = false;
 
@@ -86,7 +82,6 @@ public class EnemyAI : MonoBehaviour
             jumpscareCanvas.SetActive(false);
 
         SetupAudio();
-        ResetRandomSoundTimer();
         StartCoroutine(PerceptionLoop());
     }
 
@@ -97,11 +92,6 @@ public class EnemyAI : MonoBehaviour
         stepAudioSource.loop = true;
         stepAudioSource.playOnAwake = false;
         Setup3D(stepAudioSource);
-
-        randomAudioSource = gameObject.AddComponent<AudioSource>();
-        randomAudioSource.loop = false;
-        randomAudioSource.playOnAwake = false;
-        Setup3D(randomAudioSource);
 
         screamAudioSource = gameObject.AddComponent<AudioSource>();
         screamAudioSource.loop = false;
@@ -225,21 +215,6 @@ public class EnemyAI : MonoBehaviour
     {
         if (stepSound != null && !stepAudioSource.isPlaying)
             stepAudioSource.Play();
-
-        if (randomSound != null)
-        {
-            randomSoundTimer -= Time.deltaTime;
-            if (randomSoundTimer <= 0f)
-            {
-                randomAudioSource.PlayOneShot(randomSound);
-                ResetRandomSoundTimer();
-            }
-        }
-    }
-
-    void ResetRandomSoundTimer()
-    {
-        randomSoundTimer = Random.Range(randomSoundMinInterval, randomSoundMaxInterval);
     }
 
     bool IsAgentIdle()
@@ -333,6 +308,5 @@ public class EnemyAI : MonoBehaviour
         state = EnemyState.GeekedOut;
         wanderTimer = 0f;
         jumpscareTriggered = false;
-        ResetRandomSoundTimer();
     }
 }

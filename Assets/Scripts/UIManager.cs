@@ -8,11 +8,7 @@ public class UIManager : MonoBehaviour
     public static UIManager Instance;
 
     [Header("HUD")]
-    public TextMeshProUGUI bulletsText;
     public TextMeshProUGUI messageText;
-
-    [Header("Ekran wygranej")]
-    public GameObject winPanel;
 
     private Coroutine msgCoroutine;
 
@@ -20,12 +16,7 @@ public class UIManager : MonoBehaviour
     {
         if (Instance == null) Instance = this;
         else Destroy(gameObject);
-    }
-
-    public void UpdateBullets(int current, int max)
-    {
-        if (bulletsText != null)
-            bulletsText.text = $"Naboje: {current} / {max}";
+        ShowMessage("Ucieknij i nie daj siê z³apaæ", 3f);
     }
 
     public void ShowMessage(string msg, float duration = 3f)
@@ -45,10 +36,5 @@ public class UIManager : MonoBehaviour
         if (messageText != null) messageText.text = msg;
         yield return new WaitForSeconds(duration);
         if (messageText != null) messageText.text = "";
-    }
-
-    public void ShowWinScreen()
-    {
-        if (winPanel != null) winPanel.SetActive(true);
     }
 }

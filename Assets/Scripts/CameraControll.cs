@@ -37,13 +37,12 @@ public class CameraControll : MonoBehaviour
 
     void LateUpdate()
     {
-        // Obrót gracza w poziomie
         float mouseX = Input.GetAxisRaw("Mouse X") * mouseSensitivity * Time.deltaTime;
         player.Rotate(Vector3.up * mouseX);
 
-        // Docelowe wartości zależne od stanu celowania
         bool isAiming = playerMovement != null && playerMovement.IsAiming;
 
+        // przybliżenie przy celowaniu
         Vector3 targetPos = defaultLocalPosition +
                                (isAiming ? aimPositionOffset : Vector3.zero);
         Quaternion targetRot = defaultLocalRotation *

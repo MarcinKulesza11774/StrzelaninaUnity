@@ -9,7 +9,7 @@ public class JigglePhysics : MonoBehaviour
     public float wspolczynnikSprezystosci = 15f;
     public float wspolczynnikTlumienia = 2f;
 
-    [Header("Skala bezwładności (zacznij od 0.01, zwiększaj powoli)")]
+    [Header("Skala bezwładności")]
     [Range(0f, 1f)]
     public float skalaBezwladnosci = 0.01f;
 

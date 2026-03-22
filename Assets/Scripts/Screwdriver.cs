@@ -1,9 +1,4 @@
 using UnityEngine;
-
-/// <summary>
-/// Śrubokręt do podniesienia – gracz naciska E żeby go zebrać.
-/// Po zebraniu gracz może użyć okna.
-/// </summary>
 public class Screwdriver : MonoBehaviour
 {
     [Tooltip("Zasięg interakcji")]
@@ -36,11 +31,5 @@ public class Screwdriver : MonoBehaviour
             AudioSource.PlayClipAtPoint(pickupSound, transform.position);
         UIManager.Instance?.ShowMessage("Zebrano śrubokręt!", 2f);
         Destroy(gameObject);
-    }
-
-    void OnDrawGizmosSelected()
-    {
-        Gizmos.color = Color.yellow;
-        Gizmos.DrawWireSphere(transform.position, interactRange);
     }
 }

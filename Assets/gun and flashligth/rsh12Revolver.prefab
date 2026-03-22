@@ -5023,7 +5023,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 394665832f36d3444a06a390c6659022, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GunController
-  maxBullets: 999
+  maxBullets: 5
   muzzlePoint: {fileID: 6463512552093138525}
   playerCamera: {fileID: 0}
   bulletPrefab: {fileID: 8357796585794699056, guid: fbe1f2a5707ed834188480da275ddd39, type: 3}
@@ -5035,3 +5035,4 @@ MonoBehaviour:
   shootSound: {fileID: 8300000, guid: 3e48d53d87784304c938fc853f5f8b12, type: 3}
   emptySound: {fileID: 0}
   shootCooldown: 0
+  bulletsCounter: {fileID: 0}

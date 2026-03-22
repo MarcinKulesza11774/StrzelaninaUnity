@@ -3,23 +3,20 @@ using System.Collections;
 
 public class WindowExit : MonoBehaviour
 {
-    [Header("Modele okna")]
-    [Tooltip("Niezbite okno – domyślnie aktywne")]
     public GameObject intactWindow;
-    [Tooltip("Zbite okno – domyślnie nieaktywne")]
     public GameObject brokenWindow;
-    [Tooltip("Kraty – znikają po użyciu śrubokrętu")]
     public GameObject bars;
-    [Tooltip("Trigger wyjścia – aktywowany po rozbiciu szyby")]
     public GameObject exitTrigger;
 
     [Header("Efekty")]
     public GameObject glassPrefab;
-    public AudioClip screwdriverSound;
     public AudioClip glassBreakSound;
 
     [Header("Zasięg interakcji z kratami")]
     public float interactRange = 2f;
+
+    [Header("Wiatr")]
+    public float windStrength = -20f;
 
     private bool barsRemoved = false;
     private bool glassBroken = false;
@@ -64,25 +61,10 @@ public class WindowExit : MonoBehaviour
     {
         barsRemoved = true;
 
-        if (screwdriverSound != null)
-            AudioSource.PlayClipAtPoint(screwdriverSound, transform.position);
-
-        // Animacja znikania krat
         if (bars != null)
         {
-            float t = 0f;
             Renderer r = bars.GetComponentInChildren<Renderer>();
-            while (t < 1f)
-            {
-                t += Time.deltaTime * 2f;
-                if (r != null)
-                {
-                    Color c = r.material.color;
-                    c.a = 1f - t;
-                    r.material.color = c;
-                }
-                yield return null;
-            }
+            yield return null;
             bars.SetActive(false);
         }
     }
@@ -102,7 +84,7 @@ public class WindowExit : MonoBehaviour
         // Spawn kawałków szkła
         if (glassPrefab != null)
         {
-            for (int i = 0; i < 8; i++)
+            for (int i = 0; i < 20; i++)
             {
                 Vector3 pos = transform.position + Random.insideUnitSphere * 0.3f;
                 GameObject shard = Instantiate(glassPrefab, pos, Random.rotation);
@@ -115,23 +97,15 @@ public class WindowExit : MonoBehaviour
             }
         }
 
-        // Zamień model niezbity na zbity
         if (intactWindow != null) intactWindow.SetActive(false);
         if (brokenWindow != null) brokenWindow.SetActive(true);
 
-        // Włącz wiatr we włosach
         HairPhysics[] hairComponents = Object.FindObjectsByType<HairPhysics>(FindObjectsSortMode.None);
         foreach (var hair in hairComponents)
-            hair.SetWind(true, -transform.forward, 1.5f);
+            hair.SetWind(true, -transform.forward, windStrength);
 
         yield return new WaitForSeconds(0.5f);
 
         if (exitTrigger != null) exitTrigger.SetActive(true);
-    }
-
-    void OnDrawGizmosSelected()
-    {
-        Gizmos.color = Color.cyan;
-        Gizmos.DrawWireSphere(transform.position, interactRange);
     }
 }
