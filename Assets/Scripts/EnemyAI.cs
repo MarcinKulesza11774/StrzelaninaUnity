@@ -9,14 +9,21 @@ public class EnemyAI : MonoBehaviour
 
     [Header("Referencje")]
     public Transform player;
-    [Tooltip("Przeciągnij model/kapsułę (dziecko Enemy) – do ukrywania przy śmierci")]
     public GameObject visualObject;
 
-    [Header("Geeked Out – szukanie gracza")]
+    [Header("Geeked Out")]
     [Range(1f, 10f)] public float wanderInterval = 3f;
     [Range(2f, 20f)] public float wanderRadius = 8f;
     [Range(0f, 1f)] public float playerBias = 0.4f;
     public float geekedOutSpeed = 2.5f;
+
+    [Header("Locked In")]
+    public float lockedInSpeed = 5f;
+    [Range(10f, 180f)] public float fovAngle = 90f;
+    [Range(2f, 30f)] public float fovRange = 10f;
+    [Range(2f, 20f)] public float sprintDetectionRange = 6f;
+    public PlayerMovement playerMovement;
+    public LayerMask wallLayers;
 
     [Header("Złapanie gracza")]
     public float catchRange = 1.2f;
@@ -53,6 +60,11 @@ public class EnemyAI : MonoBehaviour
     private float randomSoundTimer;
     private Collider enemyCollider;
     private bool jumpscareTriggered = false;
+    private Vector3 lastKnownPlayerPos;
+    private float lockedInSearchTimer = 0f;
+    private const float lockedInSearchTime = 3f;
+    private bool playerVisible = false;
+    private bool playerSprinting = false;
 
     void Start()
     {
@@ -64,6 +76,9 @@ public class EnemyAI : MonoBehaviour
         if (player == null)
             player = GameObject.FindGameObjectWithTag("Player")?.transform;
 
+        if (playerMovement == null && player != null)
+            playerMovement = player.GetComponent<PlayerMovement>();
+
         if (visualObject == null && transform.childCount > 0)
             visualObject = transform.GetChild(0).gameObject;
 
@@ -72,6 +87,7 @@ public class EnemyAI : MonoBehaviour
 
         SetupAudio();
         ResetRandomSoundTimer();
+        StartCoroutine(PerceptionLoop());
     }
 
     void SetupAudio()
@@ -102,6 +118,19 @@ public class EnemyAI : MonoBehaviour
         src.dopplerLevel = 0f;
     }
 
+    IEnumerator PerceptionLoop()
+    {
+        while (true)
+        {
+            if (state != EnemyState.Dead && player != null)
+            {
+                playerVisible = CanSeePlayer();
+                playerSprinting = PlayerIsSprinting();
+            }
+            yield return new WaitForSeconds(0.2f);
+        }
+    }
+
     void Update()
     {
         if (state == EnemyState.Dead || player == null) return;
@@ -115,21 +144,80 @@ public class EnemyAI : MonoBehaviour
             return;
         }
 
-        if (state == EnemyState.GeekedOut)
-            UpdateGeekedOut();
+        switch (state)
+        {
+            case EnemyState.GeekedOut: UpdateGeekedOut(); break;
+            case EnemyState.LockedIn: UpdateLockedIn(); break;
+        }
 
         UpdateSounds();
+    }
+
+    bool CanSeePlayer()
+    {
+        Vector3 toPlayer = player.position - transform.position;
+        float dist = toPlayer.magnitude;
+
+        if (dist > fovRange) return false;
+
+        float angle = Vector3.Angle(transform.forward, toPlayer.normalized);
+        if (angle > fovAngle * 0.5f) return false;
+
+        Vector3 eyePos = transform.position + Vector3.up * 1.5f;
+        Vector3 playerEyePos = player.position + Vector3.up * 1.5f;
+        if (Physics.Raycast(eyePos, (playerEyePos - eyePos).normalized, dist, wallLayers))
+            return false;
+
+        return true;
+    }
+
+    bool PlayerIsSprinting()
+    {
+        if (playerMovement == null) return false;
+        float dist = Vector3.Distance(transform.position, player.position);
+        return dist <= sprintDetectionRange && playerMovement.IsSprinting;
     }
 
     void UpdateGeekedOut()
     {
         agent.speed = geekedOutSpeed;
 
+        if (playerVisible || playerSprinting)
+        {
+            lastKnownPlayerPos = player.position;
+            state = EnemyState.LockedIn;
+            return;
+        }
+
         wanderTimer -= Time.deltaTime;
         if (wanderTimer <= 0f || IsAgentIdle())
         {
             agent.SetDestination(PickWanderTarget());
             wanderTimer = wanderInterval + Random.Range(-1f, 1f);
+        }
+    }
+
+    void UpdateLockedIn()
+    {
+        agent.speed = lockedInSpeed;
+
+        if (playerVisible || playerSprinting)
+        {
+            lastKnownPlayerPos = player.position;
+            lockedInSearchTimer = 0f;
+            agent.SetDestination(lastKnownPlayerPos);
+        }
+        else
+        {
+            agent.SetDestination(lastKnownPlayerPos);
+            lockedInSearchTimer += Time.deltaTime;
+
+            if (lockedInSearchTimer >= lockedInSearchTime)
+            {
+                lockedInSearchTimer = 0f;
+                state = EnemyState.GeekedOut;
+                wanderTimer = 0f;
+            }
         }
     }
 
@@ -154,6 +242,13 @@ public class EnemyAI : MonoBehaviour
         randomSoundTimer = Random.Range(randomSoundMinInterval, randomSoundMaxInterval);
     }
 
+    bool IsAgentIdle()
+    {
+        return !agent.pathPending
+            && agent.remainingDistance < 0.5f
+            && agent.velocity.sqrMagnitude < 0.1f;
+    }
+
     Vector3 PickWanderTarget()
     {
         Vector2 randomCircle = Random.insideUnitCircle * wanderRadius;
@@ -168,16 +263,8 @@ public class EnemyAI : MonoBehaviour
         return transform.position;
     }
 
-    bool IsAgentIdle()
-    {
-        return !agent.pathPending
-            && agent.remainingDistance < 0.5f
-            && agent.velocity.sqrMagnitude < 0.1f;
-    }
-
     IEnumerator DoJumpscare()
     {
-        Debug.Log("DoJumpscare START");
         state = EnemyState.Dead;
         agent.isStopped = true;
         stepAudioSource.Stop();
@@ -185,7 +272,6 @@ public class EnemyAI : MonoBehaviour
         if (jumpscareCanvas != null)
             jumpscareCanvas.SetActive(true);
 
-        // Czekaj jedną klatkę żeby Unity zainicjowało Video Player po aktywacji Canvas
         yield return null;
 
         if (jumpscareVideo != null)
@@ -194,22 +280,18 @@ public class EnemyAI : MonoBehaviour
             yield return new WaitUntil(() => jumpscareVideo.isPrepared);
             jumpscareVideo.Play();
             yield return new WaitUntil(() => jumpscareVideo.isPlaying);
-            Debug.Log("Video gra: " + jumpscareVideo.isPlaying);
             yield return new WaitUntil(() =>
                 !jumpscareVideo.isPlaying ||
                 jumpscareVideo.time >= jumpscareVideo.length - 0.1);
             jumpscareVideo.Stop();
-            Debug.Log("Video skonczone");
         }
         else
         {
-            Debug.Log("Brak video, czekam: " + jumpscareTime);
             Time.timeScale = 0f;
             yield return new WaitForSecondsRealtime(jumpscareTime);
             Time.timeScale = 1f;
         }
 
-        Debug.Log("Laduje scene");
         if (jumpscareCanvas != null)
             jumpscareCanvas.SetActive(false);
 
@@ -252,10 +334,5 @@ public class EnemyAI : MonoBehaviour
         wanderTimer = 0f;
         jumpscareTriggered = false;
         ResetRandomSoundTimer();
-    }
-
-    public void SetLockedIn()
-    {
-        state = EnemyState.LockedIn;
     }
 }

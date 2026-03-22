@@ -6,7 +6,6 @@ public class CrosshairController : MonoBehaviour
 
     void Update()
     {
-        Debug.Log("IsAiming: " + playerMovement.IsAiming);
         gameObject.SetActive(playerMovement.IsAiming);
     }
 }

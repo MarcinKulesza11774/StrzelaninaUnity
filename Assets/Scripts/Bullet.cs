@@ -13,38 +13,26 @@ public class Bullet : MonoBehaviour
     {
         if (col.gameObject.CompareTag("Player")) return;
 
-        //if (col.gameObject.CompareTag("Enemy"))
-        //{
+        // Reakcje z otoczeniem
         col.gameObject.GetComponentInParent<EnemyAI>()?.GetShot();
-        //return;
-        //}
+        col.gameObject.GetComponentInParent<WindowExit>()?.OnGlassHit();
+        var windowExit = col.gameObject.GetComponentInParent<WindowExit>();
+        Debug.Log("Trafiono: " + col.gameObject.name + " | WindowExit: " + windowExit);
 
         // Spawn decala w miejscu trafienia
         if (bulletHolePrefab != null && col.contacts.Length > 0)
         {
             ContactPoint contact = col.contacts[0];
-
-            // Pozycja lekko nad powierzchnią żeby uniknąć Z-fighting
             Vector3 spawnPos = contact.point + contact.normal * decalOffset;
-            // Rotacja: decal "leży" na powierzchni – obrót zgodny z normalną ściany
             Quaternion spawnRot = Quaternion.LookRotation(-contact.normal);
-            // Losowy obrót wokół normalnej dla różnorodności
             spawnRot *= Quaternion.Euler(0f, 0f, Random.Range(0f, 360f));
 
             GameObject hole = Instantiate(bulletHolePrefab, spawnPos, spawnRot);
-
-            // Przypiąć do ściany żeby nie zostawał w powietrzu gdy ściana się rusza
             hole.transform.SetParent(col.transform);
 
             if (bulletHoleLifetime > 0f)
                 Destroy(hole, bulletHoleLifetime);
         }
-
-        
-
-        // Reakcje z otoczeniem – do uzupełnienia:
-        // col.gameObject.GetComponent<Padlock>()?.Unlock();
-        // col.gameObject.GetComponent<TurretTrap>()?.TakeHit();
 
         Destroy(gameObject);
     }

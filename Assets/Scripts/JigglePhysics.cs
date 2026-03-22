@@ -49,14 +49,14 @@ public class JigglePhysics : MonoBehaviour
         float alpha = 1f - Mathf.Exp(-dt / Mathf.Max(czasWygladzaniaPrzyspieszenia, 0.0001f));
         przyspieszenieAnchoraWygladzone = Vector3.Lerp(
             przyspieszenieAnchoraWygladzone,
-            przyspieszenieSurowe,
+            // z jakiego powodu fizyka działa w złą stronę nie chce mi się tego naprawiać więc tu jest minus który ją odwraca
+            -przyspieszenieSurowe,
             alpha
         );
 
         ostatniaPozycjaAnchora = aktualnaPozycjaAnchora;
         ostatniaPredkoscAnchora = predkoscAnchora;
 
-        // skalaBezwladnosci pozwala przyciąć siłę bez ruszania reszty parametrów
         Vector3 silaBezwladnosciWorld = masa * przyspieszenieAnchoraWygladzone * skalaBezwladnosci;
         Vector3 silaBezwladnosciLokalna = anchor.InverseTransformDirection(silaBezwladnosciWorld);
 

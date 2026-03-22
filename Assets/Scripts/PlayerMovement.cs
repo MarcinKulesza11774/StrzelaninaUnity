@@ -16,6 +16,7 @@ public class PlayerMovement : MonoBehaviour
     private bool isMoving;
     private bool isAiming;
     private bool isSprinting;
+    public bool IsSprinting => isSprinting;
 
     public bool IsAiming => isAiming;
 

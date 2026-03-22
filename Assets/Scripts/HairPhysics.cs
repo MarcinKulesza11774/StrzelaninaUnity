@@ -38,6 +38,12 @@ public class HairPhysics : MonoBehaviour
     [Tooltip("Koniec – większe limity bo końce są luźne.")]
     public Vector3 limit_koniec = new Vector3(0.008f, 0.005f, 0.008f);
 
+    [Header("── Wiatr ────────────────────────────────────────────────")]
+    public bool enableWind = false;
+    public Vector3 windDirection = new Vector3(1f, 0f, 0f);
+    [Range(0f, 5f)] public float windStrength = 0.5f;
+    [Range(0f, 5f)] public float windTurbulence = 1f;
+
     [Header("── Kolizja ze sferami ────────────────────────────────────")]
     public SphereCollider[] sferyKolizji;
 
@@ -55,6 +61,14 @@ public class HairPhysics : MonoBehaviour
     Vector3 ostatniaPozycjaAnchora;
     Vector3 ostatniaPredkoscAnchora;
     Vector3 przyspieszenieWygladzone;
+    float windPhase;
+
+    public void SetWind(bool enabled, Vector3 direction, float strength)
+    {
+        enableWind = enabled;
+        windDirection = direction;
+        windStrength = strength;
+    }
 
     // ══════════════════════════════════════════════════════════════════════
     void Start()
@@ -100,6 +114,8 @@ public class HairPhysics : MonoBehaviour
         float dt = Time.deltaTime;
         if (dt <= 0f || kosci == null) return;
 
+        windPhase += dt * windTurbulence;
+
         // ── Przyspieszenie anchora (wspólne dla całego łańcucha) ───────────
         Vector3 aktualnaPos = anchor.position;
         Vector3 predkosc = (aktualnaPos - ostatniaPozycjaAnchora) / dt;
@@ -123,10 +139,19 @@ public class HairPhysics : MonoBehaviour
             Vector3 bezwladnosc = rodzic.InverseTransformDirection(
                 -przyspieszenieWygladzone * skalaBezwladnosci);
 
+            // Wiatr
+            Vector3 wiatr = Vector3.zero;
+            if (enableWind)
+            {
+                float turbulence = 0.5f + 0.5f * Mathf.Sin(windPhase + i * 1.3f);
+                wiatr = rodzic.InverseTransformDirection(
+                    windDirection.normalized * windStrength * turbulence * dt);
+            }
+
             Vector3 wychylenie = k.transform.localPosition - k.pozycjaSpoczynkowa;
             Vector3 sila = -k.sztywnosc * wychylenie
                                  - tlumienie * k.predkoscLokalna
-                                 + bezwladnosc;
+                                 + bezwladnosc + wiatr;
 
             k.predkoscLokalna += sila * dt;
             Vector3 nowaPozycja = k.transform.localPosition + k.predkoscLokalna * dt;
