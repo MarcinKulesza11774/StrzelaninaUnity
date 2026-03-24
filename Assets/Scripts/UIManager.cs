@@ -16,7 +16,6 @@ public class UIManager : MonoBehaviour
     {
         if (Instance == null) Instance = this;
         else Destroy(gameObject);
-        ShowMessage("Ucieknij i nie daj siê z³apaæ", 3f);
     }
 
     public void ShowMessage(string msg, float duration = 3f)

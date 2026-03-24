@@ -10,13 +10,11 @@ public class Bullet : MonoBehaviour
     {
         if (col.gameObject.CompareTag("Player")) return;
 
-        // Reakcje z otoczeniem
         col.gameObject.GetComponentInParent<EnemyAI>()?.GetShot();
         col.gameObject.GetComponentInParent<WindowExit>()?.OnGlassHit();
         var windowExit = col.gameObject.GetComponentInParent<WindowExit>();
         Debug.Log("Trafiono: " + col.gameObject.name + " | WindowExit: " + windowExit);
 
-        // Spawn decala w miejscu trafienia
         if (bulletHolePrefab != null && col.contacts.Length > 0)
         {
             ContactPoint contact = col.contacts[0];

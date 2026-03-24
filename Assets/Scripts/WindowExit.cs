@@ -73,15 +73,14 @@ public class WindowExit : MonoBehaviour
     {
         if (!barsRemoved || glassBroken) return;
         glassBroken = true;
-        StartCoroutine(BreakGlass());
+        BreakGlass();
     }
 
-    IEnumerator BreakGlass()
+    void BreakGlass()
     {
         if (glassBreakSound != null)
             AudioSource.PlayClipAtPoint(glassBreakSound, transform.position);
 
-        // Spawn kawałków szkła
         if (glassPrefab != null)
         {
             for (int i = 0; i < 20; i++)
@@ -103,8 +102,6 @@ public class WindowExit : MonoBehaviour
         HairPhysics[] hairComponents = Object.FindObjectsByType<HairPhysics>(FindObjectsSortMode.None);
         foreach (var hair in hairComponents)
             hair.SetWind(true, -transform.forward, windStrength);
-
-        yield return new WaitForSeconds(0.5f);
 
         if (exitTrigger != null) exitTrigger.SetActive(true);
     }

@@ -24,7 +24,7 @@ public class EnemyAI : MonoBehaviour
     [Range(2f, 20f)] public float sprintDetectionRange = 6f;
     public PlayerMovement playerMovement;
     public LayerMask wallLayers;
-    [Tooltip("Ile sekund wróg szuka w ostatniej pozycji zanim wróci do GeekedOut")]
+    [Tooltip("Ile sekund wróg siedzi w ostatniej pozycji zanim wróci do GeekedOut")]
     [Range(0f, 10f)] public float lockedInSearchTime = 1f;
 
     [Header("Złapanie gracza")]
@@ -124,6 +124,11 @@ public class EnemyAI : MonoBehaviour
     void Update()
     {
         if (state == EnemyState.Dead || player == null) return;
+
+        Vector3 rot = transform.eulerAngles;
+        rot.x = 0f;
+        rot.z = 0f;
+        transform.eulerAngles = rot;
 
         float dist = Vector3.Distance(transform.position, player.position);
 

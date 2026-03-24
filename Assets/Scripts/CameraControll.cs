@@ -42,13 +42,9 @@ public class CameraControll : MonoBehaviour
 
         bool isAiming = playerMovement != null && playerMovement.IsAiming;
 
-        // przybliżenie przy celowaniu
-        Vector3 targetPos = defaultLocalPosition +
-                               (isAiming ? aimPositionOffset : Vector3.zero);
-        Quaternion targetRot = defaultLocalRotation *
-                               (isAiming ? Quaternion.Euler(aimRotationOffset) : Quaternion.identity);
+        Vector3 targetPos = defaultLocalPosition + (isAiming ? aimPositionOffset : Vector3.zero);
+        Quaternion targetRot = defaultLocalRotation * (isAiming ? Quaternion.Euler(aimRotationOffset) : Quaternion.identity);
 
-        // Płynne przejście
         float t = aimSpeed * Time.deltaTime;
         transform.localPosition = Vector3.Lerp(transform.localPosition, targetPos, t);
         transform.localRotation = Quaternion.Lerp(transform.localRotation, targetRot, t);

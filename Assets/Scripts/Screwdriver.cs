@@ -1,7 +1,6 @@
 using UnityEngine;
 public class Screwdriver : MonoBehaviour
 {
-    [Tooltip("Zasięg interakcji")]
     public float interactRange = 2f;
     public AudioClip pickupSound;
 

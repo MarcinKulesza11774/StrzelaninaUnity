@@ -1,5 +1,4 @@
 using UnityEngine;
-using System.Collections;
 using TMPro;
 
 public class GunController : MonoBehaviour
@@ -20,30 +19,30 @@ public class GunController : MonoBehaviour
     public float maxRange = 100f;
 
     [Header("Celownik")]
-    [Tooltip("wysokość celownika \n" +
-             "100px na 1080p = 0.09, na 720p = 0.14")]
+    [Tooltip("Wysokość celownika.\n100px = 0.09")]
     public float crosshairOffsetY = 0.09f;
 
     [Header("Efekty")]
     public ParticleSystem muzzleFlash;
     public AudioClip shootSound;
     public AudioClip emptySound;
+    public float shotVolume = 6f;
 
     [Header("Cooldown")]
     public float shootCooldown = 0.4f;
+    private float shootTimer = 0f;
 
     [Header("UI")]
     public TextMeshProUGUI bulletsCounter;
 
     private AudioSource audioSource;
-    private bool canShoot = true;
 
     public int BulletsLeft => bulletsLeft;
 
     void Start()
     {
         bulletsLeft = maxBullets;
-        UpdateBullets(bulletsLeft, maxBullets);
+        UpdateBullets();
         audioSource = GetComponent<AudioSource>();
         if (audioSource == null)
             audioSource = gameObject.AddComponent<AudioSource>();
@@ -53,26 +52,27 @@ public class GunController : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetButtonDown("Fire1") && canShoot && playerMovement.IsAiming)
-            StartCoroutine(Shoot());
+        if (shootTimer > 0f)
+            shootTimer -= Time.deltaTime;
+
+        if (Input.GetButtonDown("Fire1") && shootTimer <= 0f && playerMovement.IsAiming)
+            Shoot();
     }
 
-    IEnumerator Shoot()
+    void Shoot()
     {
-        canShoot = false;
+        shootTimer = shootCooldown;
 
         if (bulletsLeft <= 0)
         {
             if (emptySound != null) audioSource.PlayOneShot(emptySound);
-            yield return new WaitForSeconds(shootCooldown);
-            canShoot = true;
-            yield break;
+            return;
         }
 
         bulletsLeft--;
-        UpdateBullets(bulletsLeft, maxBullets);
+        UpdateBullets();
 
-        if (shootSound != null) audioSource.PlayOneShot(shootSound, 2f);
+        if (shootSound != null) audioSource.PlayOneShot(shootSound, shotVolume);
 
         if (muzzleFlash != null)
         {
@@ -80,26 +80,16 @@ public class GunController : MonoBehaviour
             muzzleFlash.Play();
         }
 
-        // Punkt startowy raycast                             nieco przed kamerą, żeby nie wchodził w kolizję z postacią
         Vector3 rayOrigin = playerCamera.transform.position + playerCamera.transform.forward * 2f;
-        // stworzenie promienia
+
         Ray aimRay = new Ray(rayOrigin, playerCamera.ViewportPointToRay(new Vector3(0.5f, 0.5f + crosshairOffsetY, 0f)).direction);
 
-        // ustalenie punktu trafienia
-        Vector3 targetPoint;
-        if (Physics.Raycast(aimRay, out RaycastHit hit, maxRange))
-            targetPoint = hit.point;
-        else
-            targetPoint = aimRay.origin + aimRay.direction * maxRange;
+        Vector3 targetPoint = Physics.Raycast(aimRay, out RaycastHit hit, maxRange) ? hit.point : aimRay.origin + aimRay.direction * maxRange;
 
-        // stworzenie wektora strzału
         Vector3 shootDir = (targetPoint - muzzlePoint.position).normalized;
 
         GameObject bullet = Instantiate(
-            bulletPrefab,
-            muzzlePoint.position,
-            Quaternion.LookRotation(shootDir)
-        );
+            bulletPrefab, muzzlePoint.position, Quaternion.LookRotation(shootDir));
 
         Rigidbody rb = bullet.GetComponent<Rigidbody>();
         if (rb != null)
@@ -109,15 +99,11 @@ public class GunController : MonoBehaviour
         }
 
         Destroy(bullet, bulletLifetime);
-
-        yield return new WaitForSeconds(shootCooldown);
-        canShoot = true;
     }
 
-    public void UpdateBullets(int bulletsLeft, int bulletsMax)
+    void UpdateBullets()
     {
         if (bulletsCounter != null)
-            bulletsCounter.text = $"{bulletsLeft} / {bulletsMax}"
-        ;
+            bulletsCounter.text = $"{bulletsLeft} / {maxBullets}";
     }
 }

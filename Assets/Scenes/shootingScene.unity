@@ -29040,7 +29040,7 @@ PrefabInstance:
       objectReference: {fileID: 81766126}
     - target: {fileID: 99131529145832505, guid: c4c63ecec8867cf42a642e3cce503e8c, type: 3}
       propertyPath: mouseSensitivity
-      value: 200
+      value: 130
       objectReference: {fileID: 0}
     - target: {fileID: 99131529145832505, guid: c4c63ecec8867cf42a642e3cce503e8c, type: 3}
       propertyPath: aimPositionOffset.x
@@ -36049,6 +36049,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ExitTrigger
   winSound: {fileID: 0}
+  winMessage: "Uda\u0142o ci si\u0119 uciec"
 --- !u!1 &1345803138
 GameObject:
   m_ObjectHideFlags: 0

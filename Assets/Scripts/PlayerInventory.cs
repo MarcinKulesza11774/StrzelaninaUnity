@@ -1,8 +1,4 @@
 using UnityEngine;
-
-/// <summary>
-/// Prosty singleton przechowujący stan ekwipunku gracza.
-/// </summary>
 public class PlayerInventory : MonoBehaviour
 {
     public static PlayerInventory Instance;
